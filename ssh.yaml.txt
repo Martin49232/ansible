@@ -1,0 +1,8 @@
+- name: ssh
+  hosts: all
+  tasks:
+    - name: install key
+      authorized_key:
+        user: root
+        key: '{{ cesta ke klici }}'
+        state: present

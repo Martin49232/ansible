@@ -1,0 +1,2 @@
+inventory = ip adresa severu
+remote_user = root

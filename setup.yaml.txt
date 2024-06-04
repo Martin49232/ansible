@@ -1,0 +1,7 @@
+- hosts: all
+  user: root
+  vars:
+    password: zaheshovany heslo
+
+  tasks:
+    - user: name=tset password={{password}}
