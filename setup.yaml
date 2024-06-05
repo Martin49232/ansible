@@ -1,3 +1,4 @@
+---
 - name: setup
   hosts: all
   user: root
