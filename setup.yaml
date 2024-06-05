@@ -1,4 +1,5 @@
-- hosts: all
+- name: setup
+  hosts: all
   user: root
   vars:
     password: zaheshovany heslo
