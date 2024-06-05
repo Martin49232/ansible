@@ -4,4 +4,8 @@
     password: zaheshovany heslo
 
   tasks:
-    - user: name=tset password={{password}}
+    - name: set password
+      user: name=tset password={{password}}
+
+    - name: Install vim
+  action: command: sudo apt-get install vim
