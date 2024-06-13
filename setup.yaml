@@ -15,3 +15,28 @@
         key: '{{ item }}'
         state: present
       loop: '{{ ssh_keys }}'
+      
+- name: Users
+  hosts: all
+  tags: users
+
+  vars:
+    username: user
+    shell: /bin/bash 
+    
+    tasks:
+    
+    - name: user
+      user:
+        name: "{{ username }}"
+        shell: "{{ shell }}"
+        state: present
+
+- name: Install Vim
+  hosts: all
+
+  tasks:
+    - name: Install Vim
+      package:
+        name: vim
+        state: present
