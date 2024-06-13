@@ -1,13 +1,17 @@
 ---
-- name: setup
+- name: SSH
   hosts: all
-  user: root
-  vars:
-    password: zaheshovanyHeslo
+  tags: ssh
 
   tasks:
-    - name: set password
-      user: name=tset password={{password}}
+    - name: Ensure root ssh directory exists
+      file:
+        path: /root/.ssh
+        state: directory
 
-    - name: Install vim
-      action: command: sudo apt-get install vim
+    - name: Import SSH keys
+      authorized_key:
+        user: root
+        key: '{{ item }}'
+        state: present
+      loop: '{{ ssh_keys }}'
