@@ -1,8 +1,6 @@
-- name: ssh
-  hosts: all
+- name: Connect to system via SSH
+  hosts: hosts
+
   tasks:
-    - name: install key
-      authorized_key:
-        user: root
-        key: '{{ cesta ke klici }}'
-        state: present
+    - name: Ensure SSH connection to the managed system
+      ping:
